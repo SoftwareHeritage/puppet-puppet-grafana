@@ -56,7 +56,6 @@ Puppet::Type.newtype(:grafana_datasource) do
 
   newproperty(:password) do
     desc 'The password for the datasource (optional)'
-    sensitive true
   end
 
   newproperty(:database) do
@@ -107,7 +106,6 @@ Puppet::Type.newtype(:grafana_datasource) do
 
   newproperty(:secure_json_data) do
     desc 'Additional secure JSON data to configure the datasource (optional)'
-    sensitive true
 
     validate do |value|
       raise ArgumentError, 'secure_json_data should be a Hash!' unless value.nil? || value.is_a?(Hash)
